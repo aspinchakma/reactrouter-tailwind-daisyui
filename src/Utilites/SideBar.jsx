@@ -11,31 +11,31 @@ const SideBar = () => {
       </NavLink>
       <NavLink
         className="text-lg font-bold border-2 border-black w-full py-3 text-center"
-        to={``}
+        to={`/home/icecreams`}
       >
         Ice Creams
       </NavLink>
       <NavLink
         className="text-lg font-bold border-2 border-black w-full py-3 text-center"
-        to={``}
+        to={`/home/blogs`}
       >
         Blogs
       </NavLink>
       <NavLink
         className="text-lg font-bold border-2 border-black w-full py-3 text-center"
-        to={``}
+        to={`/home/aboutus`}
       >
         About Us
       </NavLink>
       <NavLink
         className="text-lg font-bold border-2 border-black w-full py-3 text-center"
-        to={``}
+        to={`shoppingcart`}
       >
         Shopping Cart
       </NavLink>
       <NavLink
         className="text-lg font-bold border-2 border-black w-full py-3 text-center"
-        to={``}
+        to={`/home/contact`}
       >
         Contact
       </NavLink>
