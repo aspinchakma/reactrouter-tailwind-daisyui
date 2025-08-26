@@ -7,6 +7,7 @@ import MainHome from "./Pages/MainHome";
 import AboutUs from "./Utilites/AboutUs";
 import Blogs from "./Utilites/Blogs";
 import Contact from "./Utilites/Contact";
+import IceCreamDetails from "./Utilites/IceCreamDetails";
 import IceCreams from "./Utilites/IceCreams";
 import MainHomeBanner from "./Utilites/MainHomeBanner";
 import ShoppingCart from "./Utilites/ShoppingCart";
@@ -48,6 +49,19 @@ const router = createBrowserRouter([
       {
         path: "shoppingcart",
         element: <ShoppingCart />,
+      },
+      {
+        path: "/home/icecreams/:id",
+        element: <IceCreamDetails />,
+        loader: async ({ params }) => {
+          const id = params.id;
+          const response = await fetch(
+            `https://aspinchakma.github.io/api-for-practice/icecreams.json`
+          );
+          const data = await response.json();
+          const iceCream = data.find((ice) => ice.id === Number(id));
+          return iceCream;
+        },
       },
     ],
   },

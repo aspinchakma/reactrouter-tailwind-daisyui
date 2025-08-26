@@ -1,4 +1,5 @@
 import { FaStar } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const IceCream = ({ ice }) => {
   const {
@@ -36,12 +37,12 @@ const IceCream = ({ ice }) => {
           $<span>{price}</span>{" "}
         </p>
 
-        <button className="bg-[#f83d8e] py-2 px-4 rounded-lg text-white border-2 border-[#f83d8e] duration-550 font-bold cursor-pointer text-[18px] hover:bg-transparent hover:text-[#f83d8e]">
-          Buy Now
-        </button>
-      </div>
-      <div className="flex justify-between items-center">
-        <button>See Details</button>
+        <NavLink
+          className="bg-[#f83d8e] py-2 px-4 rounded-lg text-white border-2 border-[#f83d8e] duration-550 cursor-pointer text-[18px] hover:bg-transparent hover:text-[#f83d8e]"
+          to={`/home/icecreams/${ice.id}`}
+        >
+          See Details
+        </NavLink>
       </div>
     </div>
   );

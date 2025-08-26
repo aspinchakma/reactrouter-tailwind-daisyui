@@ -1,0 +1,8 @@
+.singleProductBannerContainer {
+  background-image: url("https://i.ibb.co.com/gZhP25wK/singleproductbanner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.singleProductBannerContainer > h2 {
+  font-family: "Berkshire Swash", serif;
+}
