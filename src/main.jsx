@@ -12,6 +12,7 @@ import Description from "./Utilites/Description";
 import IceCreamDetails from "./Utilites/IceCreamDetails";
 import IceCreams from "./Utilites/IceCreams";
 import MainHomeBanner from "./Utilites/MainHomeBanner";
+import NotFound from "./Utilites/NotFound";
 import Reviews from "./Utilites/Reviews";
 import ShoppingCart from "./Utilites/ShoppingCart";
 const router = createBrowserRouter([
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 createRoot(document.getElementById("root")).render(

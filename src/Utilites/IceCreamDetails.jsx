@@ -152,8 +152,10 @@ const IceCreamDetails = () => {
           Back
         </button>
       </div>
-      <DetailsHeader />
-      <Outlet context={data} />
+      <div className="w-[90%] mx-auto">
+        <DetailsHeader />
+        <Outlet context={data} />
+      </div>
     </div>
   );
 };

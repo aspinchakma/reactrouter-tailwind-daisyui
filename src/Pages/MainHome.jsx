@@ -18,9 +18,12 @@ const MainHome = () => {
         theme="light"
         transition={Bounce}
       />
-      <div className=" mx-auto border-2 border-red-400 grid grid-cols-6">
+      <div className=" mx-auto grid grid-cols-7 min-h-screen">
+        {/* <div className="sticky self-start  top-0">
+          <SideBar />
+        </div> */}
         <SideBar />
-        <div className="col-span-5 flex flex-col  border-2 border-green-700">
+        <div className="col-span-6 flex flex-col">
           <Outlet />
         </div>
       </div>
