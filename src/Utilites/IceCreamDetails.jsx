@@ -15,7 +15,6 @@ const IceCreamDetails = () => {
   // state for updating quantity
   const [quantity, setQuantity] = useState(1);
   const {
-    description,
     name,
     image,
     price,
@@ -154,7 +153,7 @@ const IceCreamDetails = () => {
         </NavLink>
       </div>
       <DetailsHeader />
-      <Outlet />
+      <Outlet context={data} />
     </div>
   );
 };

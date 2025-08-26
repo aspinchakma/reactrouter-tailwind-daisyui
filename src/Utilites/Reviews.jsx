@@ -1,7 +1,14 @@
+import { useOutletContext } from "react-router-dom";
+import SingleReview from "./SingleReview";
+
 const Reviews = () => {
+  const data = useOutletContext();
+  console.log(data.reviews);
   return (
     <div>
-      <h2>This is Reviews Section</h2>
+      {data.reviews.map((re) => (
+        <SingleReview re={re} key={re.user} />
+      ))}
     </div>
   );
 };
