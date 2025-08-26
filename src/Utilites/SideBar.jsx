@@ -7,6 +7,7 @@ const SideBar = () => {
       <NavLink
         className="text-lg font-bold border-2 border-black w-full py-3 text-center"
         to={``}
+        end
       >
         Home
       </NavLink>

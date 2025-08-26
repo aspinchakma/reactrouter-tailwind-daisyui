@@ -3,7 +3,6 @@ import SingleReview from "./SingleReview";
 
 const Reviews = () => {
   const data = useOutletContext();
-  console.log(data.reviews);
   return (
     <div>
       {data.reviews.map((re) => (

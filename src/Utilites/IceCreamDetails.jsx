@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaArrowRight, FaStar } from "react-icons/fa";
-import { NavLink, Outlet, useLoaderData, useNavigate } from "react-router-dom";
+import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 import DetailsHeader from "./DetailsHeader";
 import SingleProductBanner from "./SingleProductBanner";
@@ -145,12 +145,12 @@ const IceCreamDetails = () => {
         </div>
       </div>
       <div className="text-center mt-5">
-        <NavLink
-          className="bg-[#f83d8e] py-2 px-4 rounded-lg text-white border-2 border-[#f83d8e] duration-550 cursor-pointer text-[18px] hover:bg-transparent hover:text-[#f83d8e] font-bold inline-block"
+        <button
+          className="bg-[#f83d8e] py-2 px-4 rounded-lg border-2 border-[#f83d8e] duration-550 cursor-pointer text-[18px] hover:bg-transparent hover:text-[#f83d8e] font-bold inline-block text-white"
           onClick={handleGoToBackPage}
         >
           Back
-        </NavLink>
+        </button>
       </div>
       <DetailsHeader />
       <Outlet context={data} />

@@ -5,3 +5,10 @@
   color: #e33882;
   border-bottom: 2px solid #e33882;
 }
+.detailsHeader a {
+  font-size: 20px;
+  margin-right: 5px;
+  padding: 12px 0;
+  display: inline-block;
+  font-weight: bold;
+}
