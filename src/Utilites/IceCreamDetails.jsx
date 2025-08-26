@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { BiRightArrow } from "react-icons/bi";
-import { FaStar } from "react-icons/fa";
+import { FaArrowRight, FaStar } from "react-icons/fa";
 import { NavLink, useLoaderData, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 import SingleProductBanner from "./SingleProductBanner";
@@ -24,13 +23,19 @@ const IceCreamDetails = () => {
     additionalInformation,
   } = data;
 
+  // showing total Price
+  const [totalPrice, setTotalPrice] = useState(Number(price));
   // increse quantity
   const handleIncreaseQuantity = () => {
-    setQuantity(quantity + 1);
+    const finalQuantity = quantity + 1;
+    setQuantity(finalQuantity);
+    setTotalPrice(price * finalQuantity);
   };
   const handleDecreaseQuantity = () => {
+    const finalQuantity = quantity - 1;
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity(finalQuantity);
+      setTotalPrice(price * finalQuantity);
     } else {
       toast.error("You Have To select minimum 1", {
         position: "bottom-right",
@@ -48,7 +53,7 @@ const IceCreamDetails = () => {
   return (
     <div>
       <SingleProductBanner />
-      <div className="w-[70%] mx-auto border-2 border-green-700 mt-10">
+      <div className="w-[70%] mx-auto mt-10">
         <div className="grid grid-cols-2 gap-6">
           <img
             className="w-full object-cover lg:h-[500px] rounded-lg"
@@ -125,13 +130,27 @@ const IceCreamDetails = () => {
                   +
                 </button>
               </div>
-              <button>
-                Add To Cart <BiRightArrow />
+              <button className="bg-[#f83d8e] py-2 px-4 rounded-lg text-white border-2 border-[#f83d8e] duration-550 cursor-pointer text-[18px] hover:bg-transparent hover:text-[#f83d8e] font-bold">
+                Add To Cart <FaArrowRight className="inline-block" />
               </button>
+            </div>
+            <div className="divider mb-0"></div>
+            <div className="flex items-center justify-between">
+              <h3 className="text-2xl font-bold">Total Price</h3>
+              <p className="text-2xl font-bold text-[#683292]">
+                ${totalPrice.toFixed(2)}
+              </p>
             </div>
           </div>
         </div>
-        <NavLink onClick={handleGoToBackPage}>Back</NavLink>
+      </div>
+      <div className="text-center mt-5">
+        <NavLink
+          className="bg-[#f83d8e] py-2 px-4 rounded-lg text-white border-2 border-[#f83d8e] duration-550 cursor-pointer text-[18px] hover:bg-transparent hover:text-[#f83d8e] font-bold inline-block"
+          onClick={handleGoToBackPage}
+        >
+          Back
+        </NavLink>
       </div>
     </div>
   );
