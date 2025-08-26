@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Footer from "./Footer";
 import IceCream from "./IceCream";
 import "./IceCreams.css";
 const IceCreams = () => {
@@ -16,6 +17,7 @@ const IceCreams = () => {
           <IceCream ice={ice} key={ice.id} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

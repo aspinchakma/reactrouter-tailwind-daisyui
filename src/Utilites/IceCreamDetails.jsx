@@ -3,6 +3,7 @@ import { FaArrowRight, FaStar } from "react-icons/fa";
 import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 import DetailsHeader from "./DetailsHeader";
+import Footer from "./Footer";
 import SingleProductBanner from "./SingleProductBanner";
 
 const IceCreamDetails = () => {
@@ -156,6 +157,7 @@ const IceCreamDetails = () => {
         <DetailsHeader />
         <Outlet context={data} />
       </div>
+      <Footer />
     </div>
   );
 };
