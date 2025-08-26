@@ -1,0 +1,17 @@
+.home_container {
+  background-image: url("https://i.ibb.co.com/fzww18TH/Section.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f784bd20;
+}
+.home_banner_common {
+  font-family: "Berkshire Swash", serif;
+}
+.browse_all {
+  background-color: #683292;
+  color: white;
+  border: 1px solid #683292;
+  padding: 18px 32px;
+  display: inline-block;
+  border-radius: 32px;
+}
