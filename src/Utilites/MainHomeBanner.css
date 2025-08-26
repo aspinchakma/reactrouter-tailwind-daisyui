@@ -1,7 +1,20 @@
 .home_banner_container {
-  background-image: url("https://i.ibb.co.com/FqnBJRzt/banner-Background.png");
+  background-image: url("https://i.ibb.co.com/QvNnvY7t/Section-1.png");
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .banner_title {
   font-family: "Berkshire Swash", cursive;
+}
+.mainhomebannerbutton {
+  background-color: #f83d8e;
+  border: 1px solid #683292;
+  padding: 18px 32px;
+  display: inline-block;
+  border-radius: 32px;
+  border: 1px solid #f83d8e;
+  transition: 0.5s;
+}
+.mainhomebannerbutton:hover {
+  background-color: transparent;
 }

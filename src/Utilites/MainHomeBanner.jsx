@@ -4,25 +4,25 @@ import "./MainHomeBanner.css";
 
 const MainHomeBanner = () => {
   return (
-    <div className="home_banner_container">
-      <div className=" mx-auto grid grid-cols-2 gap-10">
-        <img src="https://i.ibb.co.com/SwnX1MxH/person.png" alt="" />
-        <div className="flex flex-col justify-center">
-          <h1 className="banner_title text-6xl">
-            Relive the Sweet Memories of Classic
-            <span className="text-[#f83d8e]">Ice Creams</span>
-          </h1>
-          <p className="my-[26px] text-[#646464]">
-            From rich chocolate fudge to creamy vanilla sundaes, discover our
-            menu of classic ice cream creations.
+    <div className="home_banner_container text-white flex items-center  lg:h-[100vh]">
+      <div className="lg:w-[90%] mx-auto grid grid-cols-2 items-center lg:gap-10 gap-6">
+        <div>
+          <h2 className="banner_title text-6xl">
+            Vegan Ice <br />
+            Cream Delights
+          </h2>
+          <p className="mt-4 mb-6">
+            Discover a world of tasty vegan ice cream flavors and desserts that
+            everyone can enjoy.
           </p>
           <NavLink
-            className="navLink_banner flex items-center border-2 rounded-full bg-[#f83d8e] text-white text-[16px] w-fit px-6 py-4"
+            className="mainhomebannerbutton  text-[18px]"
             to={`/home/icecreams`}
           >
-            Explore Our Menu <FaArrowRight className=" ml-3" />
+            Explore Our Menu <FaArrowRight className="inline-block ml-3" />
           </NavLink>
         </div>
+        <img src="https://i.ibb.co.com/qY1mMPRG/main-home-banner.png" alt="" />
       </div>
     </div>
   );
