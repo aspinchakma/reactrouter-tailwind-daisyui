@@ -30,6 +30,12 @@ const router = createBrowserRouter([
       {
         path: "/home/icecreams",
         element: <IceCreams />,
+        loader: async () => {
+          const url = `https://aspinchakma.github.io/api-for-practice/icecreams.json`;
+          const response = await fetch(url);
+          const data = await response.json();
+          return data;
+        },
       },
       {
         path: "blogs",
