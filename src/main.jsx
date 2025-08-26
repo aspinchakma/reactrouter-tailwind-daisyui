@@ -5,11 +5,14 @@ import "./index.css";
 import Home from "./Pages/Home";
 import MainHome from "./Pages/MainHome";
 import AboutUs from "./Utilites/AboutUs";
+import AdditionalInformation from "./Utilites/AdditionalInformation";
 import Blogs from "./Utilites/Blogs";
 import Contact from "./Utilites/Contact";
+import Description from "./Utilites/Description";
 import IceCreamDetails from "./Utilites/IceCreamDetails";
 import IceCreams from "./Utilites/IceCreams";
 import MainHomeBanner from "./Utilites/MainHomeBanner";
+import Reviews from "./Utilites/Reviews";
 import ShoppingCart from "./Utilites/ShoppingCart";
 const router = createBrowserRouter([
   {
@@ -62,6 +65,20 @@ const router = createBrowserRouter([
           const iceCream = data.find((ice) => ice.id === Number(id));
           return iceCream;
         },
+        children: [
+          {
+            path: "/home/icecreams/:id/",
+            element: <Description />,
+          },
+          {
+            path: "/home/icecreams/:id/additionalInfo",
+            element: <AdditionalInformation />,
+          },
+          {
+            path: "/home/icecreams/:id/reviews",
+            element: <Reviews />,
+          },
+        ],
       },
     ],
   },

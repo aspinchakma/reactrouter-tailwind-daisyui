@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaArrowRight, FaStar } from "react-icons/fa";
-import { NavLink, useLoaderData, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
+import DetailsHeader from "./DetailsHeader";
 import SingleProductBanner from "./SingleProductBanner";
 
 const IceCreamDetails = () => {
@@ -152,6 +153,8 @@ const IceCreamDetails = () => {
           Back
         </NavLink>
       </div>
+      <DetailsHeader />
+      <Outlet />
     </div>
   );
 };
