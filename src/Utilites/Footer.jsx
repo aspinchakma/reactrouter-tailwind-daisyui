@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="flex gap-4 items-center mb-5">
             <FaPhoneAlt className="text-3xl" />
             <div>
-              <h3 className="text-2xl font-bold">+1234234324324324</h3>
+              <h3 className="text-2xl font-bold">+12342343243</h3>
               <p className="text-[#cfb6e2]">Got Questions? Call us 24/7</p>
             </div>
           </div>
