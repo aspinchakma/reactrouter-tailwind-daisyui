@@ -5,7 +5,9 @@ const NotFound = () => {
   return (
     <div className="border-2 border-black h-screen flex items-center justify-center">
       <div>
-        <h3 className="lg:text-[200px] text-4xl text-center font-bold">404</h3>
+        <h3 className="lg:text-[200px] text-[120px] leading-[120px] lg:leading-[190px] text-center font-bold">
+          404
+        </h3>
         <p className="text-2xl lg:text-4xl text-center">
           Sorry! The Page Not Found ;(
         </p>

@@ -90,6 +90,7 @@ const router = createBrowserRouter([
           const iceCream = data.find((ice) => ice.id === Number(id));
           return iceCream;
         },
+        errorElement: <NotFound />,
         children: [
           {
             path: "/home/icecreams/:id/",
