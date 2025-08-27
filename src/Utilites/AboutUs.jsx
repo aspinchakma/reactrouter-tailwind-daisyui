@@ -4,9 +4,9 @@ import Footer from "./Footer";
 const AboutUs = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 items-center gap-10 lg:w-[80%] mx-auto py-6 lg:py-[70px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:w-[80%] mx-auto py-6 lg:py-[70px] w-[90%]">
         <img
-          className="rounded-full  object-cover w-[450px] h-[450px] lg:ml-auto"
+          className="rounded-full  object-cover w-[250px] mx-auto lg:w-[450px] lg:h-[450px] lg:ml-auto"
           src="https://i.ibb.co.com/m5xfWSBr/aboutus.png"
           alt=""
         />

@@ -5,8 +5,8 @@ import "./IceCreams.css";
 const IceCreams = () => {
   const data = useLoaderData();
   return (
-    <div>
-      <h2 className="text-center text-6xl ice_creams_title mb-4">
+    <div className="py-10 lg:py-5">
+      <h2 className="text-center text-4xl lg:text-6xl ice_creams_title mb-4">
         Our Popular <span className="text-[#f83d8e]">Vegan</span> Treats
       </h2>
       <p className="text-center text-xl text-[#646464] mb-6">
