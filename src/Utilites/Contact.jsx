@@ -20,7 +20,7 @@ const Contact = () => {
           <div>
             <div className="flex items-center gap-3 shadow-lg rounded-lg p-4">
               <div className="w-fit p-4 bg-[#683292] rounded-full">
-                <FaLocationDot className="text-3xl text-white" />
+                <FaLocationDot className="text-xl text-white" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">Our Location</h3>
@@ -30,7 +30,7 @@ const Contact = () => {
             </div>
             <div className="flex items-center gap-3 my-4 shadow-lg rounded-lg p-4">
               <div className="w-fit p-4 bg-[#683292] rounded-full">
-                <FaPhone className="text-3xl text-white" />
+                <FaPhone className="text-xl text-white" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">Phone Number</h3>
@@ -40,7 +40,7 @@ const Contact = () => {
             </div>
             <div className="flex items-center gap-3 shadow-lg rounded-lg p-4">
               <div className="w-fit p-4 bg-[#683292] rounded-full">
-                <TiMessages className="text-3xl text-white" />
+                <TiMessages className="text-xl text-white" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">Email us at</h3>
