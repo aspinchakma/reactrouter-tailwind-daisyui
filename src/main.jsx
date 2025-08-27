@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import MainHome from "./Pages/MainHome";
 import AboutUs from "./Utilites/AboutUs";
 import AdditionalInformation from "./Utilites/AdditionalInformation";
+import BlogDetails from "./Utilites/BlogDetails";
 import Blogs from "./Utilites/Blogs";
 import Contact from "./Utilites/Contact";
 import Description from "./Utilites/Description";
@@ -45,6 +46,16 @@ const router = createBrowserRouter([
       {
         path: "blogs",
         element: <Blogs />,
+        loader: async () => {
+          const url = `https://aspinchakma.github.io/api-for-practice/iceCreamBlogs.json`;
+          const response = await fetch(url);
+          const data = await response.json();
+          return data;
+        },
+      },
+      {
+        path: "/home/blogs/:id",
+        element: <BlogDetails />,
       },
       {
         path: "contact",

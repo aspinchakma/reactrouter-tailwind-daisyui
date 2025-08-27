@@ -1,9 +1,16 @@
+import { useLoaderData } from "react-router-dom";
+import Blog from "./Blog";
 import Footer from "./Footer";
 
 const Blogs = () => {
+  const data = useLoaderData();
   return (
     <div>
-      <h2>This is Blogs Section</h2>
+      <div className="w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-6">
+        {data.map((blog) => (
+          <Blog blog={blog} key={blog.id}></Blog>
+        ))}
+      </div>
       <Footer />
     </div>
   );
