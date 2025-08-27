@@ -56,6 +56,17 @@ const router = createBrowserRouter([
       {
         path: "/home/blogs/:id",
         element: <BlogDetails />,
+        loader: async ({ params }) => {
+          const blogId = params.id;
+          const url = `https://aspinchakma.github.io/api-for-practice/iceCreamBlogs.json`;
+          const response = await fetch(url);
+
+          const data = await response.json();
+          const finalData = data.find((blog) => blog.id == blogId);
+
+          return finalData;
+        },
+        errorElement: <NotFound />,
       },
       {
         path: "contact",
