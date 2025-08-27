@@ -15,10 +15,10 @@ const BlogDetails = () => {
       <div className="w-[90%] mx-auto lg:w-[60%] py-7 lg:py-[30px]">
         <img
           src={img}
-          className="w-full max-h-[300px] object-cover rounded-lg"
+          className="w-full max-h-[400px] object-cover rounded-lg"
           alt=""
         />
-        <div className="flex items-center gap-3 mt-4">
+        <div className="flex items-center gap-3 mt-10">
           <div className="flex items-center gap-3 text-[18px] text-[#636363] font-bold">
             <IoPerson className="text-[#f83d8e]" />
             <p>{writerName}</p>

@@ -42,6 +42,7 @@ const router = createBrowserRouter([
           const data = await response.json();
           return data;
         },
+        errorElement: <NotFound />,
       },
       {
         path: "blogs",
@@ -52,6 +53,7 @@ const router = createBrowserRouter([
           const data = await response.json();
           return data;
         },
+        errorElement: <NotFound />,
       },
       {
         path: "/home/blogs/:id",

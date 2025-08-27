@@ -11,7 +11,7 @@ const Blog = ({ blog }) => {
         src={img}
         alt=""
       />
-      <div className="flex items-center gap-3 mt-4">
+      <div className="flex items-center gap-3">
         <div className="flex items-center gap-3 text-[18px] text-[#636363] font-bold">
           <IoPerson className="text-[#f83d8e]" />
           <p>{writerName}</p>
