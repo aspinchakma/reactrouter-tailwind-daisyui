@@ -22,10 +22,15 @@ const Blog = ({ blog }) => {
         </div>
       </div>
       <h2 className="text-2xl font-bold mb-2">{title}</h2>
-      <p className="text-[#636363] flex-1">
+      <p className="text-[#636363] flex-1 mb-2">
         {description.split(" ").slice(0, 16).join(" ")} ...
       </p>
-      <NavLink to={`/home/blogs/${blog.id}`}>Read More</NavLink>
+      <NavLink
+        className="font-bold pb-1 border-b-black border-b-2 w-fit hover:text-[#f83d8e] hover:border-b-[#f83d8e] duration-500"
+        to={`/home/blogs/${blog.id}`}
+      >
+        Read More
+      </NavLink>
     </div>
   );
 };
