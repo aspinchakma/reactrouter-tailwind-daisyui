@@ -9,8 +9,12 @@ import { MdLocationOn, MdOutlineEmail } from "react-icons/md";
 const Footer = () => {
   return (
     <div className=" bg-[#683292] mt-10 ">
-      <div className="lg:pt-[60px] pt-10 text-white grid grid-cols-3 w-[80%] mx-auto items-center">
-        <img src="https://i.ibb.co.com/mVGtRHbF/logo.png" alt="" />
+      <div className="lg:pt-[60px] pt-10 text-white lg:grid grid-cols-3 w-[80%] mx-auto items-center">
+        <img
+          className="mx-auto my-2"
+          src="https://i.ibb.co.com/mVGtRHbF/logo.png"
+          alt=""
+        />
         <div>
           <div className="flex gap-4 items-center">
             <MdLocationOn className="text-white font-bold text-4xl" />

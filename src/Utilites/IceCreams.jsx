@@ -12,7 +12,7 @@ const IceCreams = () => {
       <p className="text-center text-xl text-[#646464] mb-6">
         Check out our favorite vegan ice cream flavors.
       </p>
-      <div className="grid grid-cols-3 gap-6 w-[95%] mx-auto">
+      <div className="grid lg:grid-cols-3 gap-6 w-[95%] mx-auto grid-cols-1">
         {data.map((ice) => (
           <IceCream ice={ice} key={ice.id} />
         ))}

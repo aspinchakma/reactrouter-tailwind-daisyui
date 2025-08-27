@@ -3,7 +3,7 @@ import "./SideBar.css";
 
 const SideBar = () => {
   return (
-    <div className="flex flex-col min-h-[100vh] shadow-xl self-start sticky top-0">
+    <div className="flex flex-row lg:flex-col lg:min-h-[100vh] shadow-xl lg:self-start sticky top-0">
       <NavLink
         className="text-lg font-bold  w-full py-3 text-center"
         to={``}

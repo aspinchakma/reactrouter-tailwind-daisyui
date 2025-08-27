@@ -4,8 +4,8 @@ import "./MainHomeBanner.css";
 
 const MainHomeBanner = () => {
   return (
-    <div className="home_banner_container text-white flex items-center  lg:h-[100vh]">
-      <div className="lg:w-[90%] mx-auto grid grid-cols-2 items-center lg:gap-10 gap-6">
+    <div className="home_banner_container text-white flex items-center  h-[100vh]">
+      <div className="lg:w-[90%] w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center lg:gap-10 gap-6">
         <div>
           <h2 className="banner_title text-6xl">
             Vegan Ice <br />
