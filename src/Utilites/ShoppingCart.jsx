@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
+import { Bounce, toast } from "react-toastify";
 import { loadDataLs } from "./DataLS";
 import Footer from "./Footer";
 import "./ShoppingCart.css";
@@ -64,7 +64,19 @@ const ShoppingCart = () => {
           saveDataLS.push({ id: item.id, quantity: item.quantity });
           return item;
         } else {
-          toast("you have to choose minimu 1 quantity");
+          // show warning
+
+          toast.warn("Select Minimu 1 Quantity!", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
         }
         saveDataLS.push({ id: item.id, quantity: item.quantity });
         return item;
@@ -90,6 +102,17 @@ const ShoppingCart = () => {
     });
     setData(finalData);
     localStorage.setItem("cart", JSON.stringify(setLSData));
+    toast.success("Successfully Deleted!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
   return (
     <div>
