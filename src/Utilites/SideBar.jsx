@@ -6,8 +6,9 @@ import "./SideBar.css";
 const SideBar = () => {
   const [isDisplay, setDisplay] = useState(false);
   const handleDisplayShowing = () => {
-    console.log("hello bro");
+    setDisplay(!isDisplay);
   };
+  // lg:self-start sticky top-0
   return (
     <div className="flex flex-row lg:flex-col lg:min-h-[100vh] shadow-xl lg:self-start sticky top-0 backdrop-blur-xl justify-center lg:justify-start gap-6 lg:gap-0">
       <div
@@ -26,7 +27,7 @@ const SideBar = () => {
       </NavLink>
 
       <NavLink
-        className="text-lg font-bold w-fit px-2 lg:px-0  lg:w-full py-3 text-center"
+        className="text-lg font-bold w-fit px-2 lg:px-0  lg:w-full py-3 text-center "
         to={`/home/icecreams`}
       >
         Ice Creams
@@ -37,7 +38,13 @@ const SideBar = () => {
       >
         Blogs
       </NavLink>
-      <div className="lg:flex lg:flex-col lg:static absolute flex flex-col bg-white left-0">
+      <div
+        className={`lg:flex lg:flex-col lg:static absolute flex flex-col left-0 top:0 duration-500 bg-white ${
+          isDisplay
+            ? `translate-y-[50px] lg:translate-y-0`
+            : `translate-y-[-300px]  lg:translate-y-0 `
+        }`}
+      >
         <NavLink
           className="text-lg font-bold w-fit px-2 lg:px-0  lg:w-full py-3 text-center"
           to={`/home/aboutus`}
