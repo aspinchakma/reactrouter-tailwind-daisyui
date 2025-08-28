@@ -74,7 +74,7 @@ const IceCreamDetails = () => {
         setQuantity(1);
       }
     }
-  }, []);
+  }, [id, price]);
 
   const hanlePlaceOrder = () => {
     const product = { id, quantity };
