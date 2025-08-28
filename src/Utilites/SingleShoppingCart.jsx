@@ -2,6 +2,7 @@ const SingleShoppingCart = ({
   item,
   handleIncreaseQuantity,
   handleDecreaseQuantity,
+  handleDeleteButton,
 }) => {
   const { image, quantity, name, price, id } = item;
   return (
@@ -41,7 +42,12 @@ const SingleShoppingCart = ({
         </button>
       </div>
       <h3>{(price * quantity).toFixed(2)}</h3>
-      <button>delete</button>
+      <button
+        onClick={() => handleDeleteButton(id)}
+        className="bg-red-500 text-white py-2 rounded-full border-2 border-red-500 hover:bg-transparent hover:text-red-500 duration-500 cursor-pointer"
+      >
+        delete
+      </button>
     </div>
   );
 };

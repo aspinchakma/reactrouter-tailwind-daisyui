@@ -79,7 +79,18 @@ const ShoppingCart = () => {
     // set data on local storage
     localStorage.setItem("cart", JSON.stringify(saveDataLS));
   };
-
+  // delete button
+  const handleDeleteButton = (id) => {
+    const setLSData = [];
+    const finalData = data.filter((item) => {
+      if (item.id != id) {
+        setLSData.push({ id: item.id, quantity: item.quantity });
+        return item;
+      }
+    });
+    setData(finalData);
+    localStorage.setItem("cart", JSON.stringify(setLSData));
+  };
   return (
     <div>
       <div className="header py-10">
@@ -109,12 +120,13 @@ const ShoppingCart = () => {
               <p></p>
             </div>
             <div>
-              {data.map((item) => (
+              {data.map((item, idx) => (
                 <SingleShoppingCart
                   item={item}
-                  key={item.id}
+                  key={idx}
                   handleIncreaseQuantity={handleIncreaseQuantity}
                   handleDecreaseQuantity={handleDecreaseQuantity}
+                  handleDeleteButton={handleDeleteButton}
                 />
               ))}
             </div>
