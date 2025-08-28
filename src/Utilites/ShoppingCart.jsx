@@ -143,55 +143,72 @@ const ShoppingCart = () => {
           {path}
         </p>
       </div>
-      <div className=" lg:py-[80px] py-[40] w-[90%] lg:w-[80%] mx-auto">
-        <div className="text-xl font-bold flex justify-between items-center">
-          <h3>Shopping Cart</h3>
-          <h3>({data.length > 10 ? data.length : `0${data.length}`} Items)</h3>
-        </div>
-        <div className="divider"></div>
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
-          <div className="lg:col-span-3">
-            <div className="text-[#787878] grid lg:grid-cols-6 mb-5 gap-4">
-              <p className="lg:col-span-2">Product Details</p>
-              <p>Price</p>
-              <p>Quantity</p>
-              <p>Total</p>
-              <p></p>
+      {data.length ? (
+        <div className=" lg:py-[80px] py-[40] w-[90%] lg:w-[80%] mx-auto">
+          <div className="text-xl font-bold flex justify-between items-center">
+            <h3>Shopping Cart</h3>
+            <h3>
+              ({data.length > 10 ? data.length : `0${data.length}`} Items)
+            </h3>
+          </div>
+          <div className="divider"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
+            <div className="lg:col-span-3">
+              <div className="text-[#787878] grid lg:grid-cols-6 mb-5 gap-4">
+                <p className="lg:col-span-2">Product Details</p>
+                <p>Price</p>
+                <p>Quantity</p>
+                <p>Total</p>
+                <p></p>
+              </div>
+              <div>
+                {data.map((item, idx) => (
+                  <SingleShoppingCart
+                    item={item}
+                    key={idx}
+                    handleIncreaseQuantity={handleIncreaseQuantity}
+                    handleDecreaseQuantity={handleDecreaseQuantity}
+                    handleDeleteButton={handleDeleteButton}
+                  />
+                ))}
+              </div>
             </div>
-            <div>
-              {data.map((item, idx) => (
-                <SingleShoppingCart
-                  item={item}
-                  key={idx}
-                  handleIncreaseQuantity={handleIncreaseQuantity}
-                  handleDecreaseQuantity={handleDecreaseQuantity}
-                  handleDeleteButton={handleDeleteButton}
-                />
-              ))}
+            <div className="border-1 border-[#e3e4e5] py-5 px-4 rounded-lg self-start  border-t-[#683292] border-t-[4px]">
+              <h3 className="text-[19px] font-bold">Order Summary</h3>
+              <div className="divider my-1"></div>
+              <p className="font-bold text-[18px]">Product Details</p>
+              <div className="flex items-center justify-between mt-4 h-[1px]">
+                <p>Subtotal:</p>
+                <p className="font-bold">${total.toFixed(2)} </p>
+              </div>
+              <div className="flex items-center justify-between mt-4">
+                <p>Shipping:20 </p>
+                <p className="font-bold">$20</p>
+              </div>
+              <div className="divider my-3 h-[1px]"></div>
+              <div className="flex items-center justify-between">
+                <p className="font-bold text-[17px]">Grand Total</p>
+                <p className="text-[#f83d8e] font-bold">
+                  {(total + 20).toFixed(2)}
+                </p>
+              </div>
             </div>
           </div>
-          <div className="border-1 border-[#e3e4e5] py-5 px-4 rounded-lg self-start  border-t-[#683292] border-t-[4px]">
-            <h3 className="text-[19px] font-bold">Order Summary</h3>
-            <div className="divider my-1"></div>
-            <p className="font-bold text-[18px]">Product Details</p>
-            <div className="flex items-center justify-between mt-4 h-[1px]">
-              <p>Subtotal:</p>
-              <p className="font-bold">${total.toFixed(2)} </p>
-            </div>
-            <div className="flex items-center justify-between mt-4">
-              <p>Shipping:20 </p>
-              <p className="font-bold">$20</p>
-            </div>
-            <div className="divider my-3 h-[1px]"></div>
-            <div className="flex items-center justify-between">
-              <p className="font-bold text-[17px]">Grand Total</p>
-              <p className="text-[#f83d8e] font-bold">
-                {(total + 20).toFixed(2)}
-              </p>
-            </div>
+        </div>
+      ) : (
+        <div className="py-6 lg:py-[80px]">
+          <img
+            className="max-w-[200px] max-h-[200px] mx-auto"
+            src="https://i.ibb.co.com/fdb9tFDc/JEMA-GER-1722-09.jpg"
+            alt=""
+          />
+          <div className="text-center">
+            <h3 className="lg:text-2xl mt-4 text-xl font-bold text-[#f83d8e]">
+              Your cart is empty. Please add a product first!
+            </h3>
           </div>
         </div>
-      </div>
+      )}
       <Footer />
     </div>
   );
