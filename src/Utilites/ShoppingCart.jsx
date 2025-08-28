@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
-import { loadDataLs } from "./DataLS";
+import { calCulateTotalMoney, loadDataLs } from "./DataLS";
 import Footer from "./Footer";
 import "./ShoppingCart.css";
 import SingleShoppingCart from "./SingleShoppingCart";
 
 const ShoppingCart = () => {
   const [data, setData] = useState([]);
+  const [total, setTotal] = useState(0);
   //load data from ls
   useEffect(() => {
     const dataLS = loadDataLs();
@@ -29,13 +30,16 @@ const ShoppingCart = () => {
           matchingObject.quantity = item.quantity;
           return matchingObject;
         });
+
         setData(finalData);
+        const totalShippingCost = calCulateTotalMoney(finalData);
+
+        setTotal(totalShippingCost);
       };
 
       loadDataServer();
     }
   }, []);
-
   const location = useLocation();
   const path = location.pathname.split("/").filter(Boolean).join(" / ");
 
@@ -51,6 +55,9 @@ const ShoppingCart = () => {
       return item;
     });
     setData(iceCreamData);
+    // set Total price
+    const totalShippingCost = calCulateTotalMoney(iceCreamData);
+    setTotal(totalShippingCost);
     // store on local storage
     localStorage.setItem("cart", JSON.stringify(saveDataLS));
   };
@@ -88,6 +95,10 @@ const ShoppingCart = () => {
     // updating data on ui
     setData(updatedData);
 
+    // updating total cost
+    const totalShippingCost = calCulateTotalMoney(updatedData);
+    setTotal(totalShippingCost);
+
     // set data on local storage
     localStorage.setItem("cart", JSON.stringify(saveDataLS));
   };
@@ -101,6 +112,11 @@ const ShoppingCart = () => {
       }
     });
     setData(finalData);
+    // updating price
+    const totalShippingCost = calCulateTotalMoney(finalData);
+    setTotal(totalShippingCost);
+
+    // showing message
     localStorage.setItem("cart", JSON.stringify(setLSData));
     toast.success("Successfully Deleted!", {
       position: "bottom-right",
@@ -154,16 +170,24 @@ const ShoppingCart = () => {
               ))}
             </div>
           </div>
-          <div className="border-1 border-[#e3e4e5] py-3 px-4 rounded-lg self-start  border-t-[#683292] border-t-[4px]">
+          <div className="border-1 border-[#e3e4e5] py-5 px-4 rounded-lg self-start  border-t-[#683292] border-t-[4px]">
             <h3 className="text-[19px] font-bold">Order Summary</h3>
-            <div className="divider"></div>
+            <div className="divider my-1"></div>
             <p className="font-bold text-[18px]">Product Details</p>
-            <p>Subtotal: </p>
-            <p>Shipping: </p>
-            <div className="divider"></div>
+            <div className="flex items-center justify-between mt-4 h-[1px]">
+              <p>Subtotal:</p>
+              <p className="font-bold">${total.toFixed(2)} </p>
+            </div>
+            <div className="flex items-center justify-between mt-4">
+              <p>Shipping:20 </p>
+              <p className="font-bold">$20</p>
+            </div>
+            <div className="divider my-3 h-[1px]"></div>
             <div className="flex items-center justify-between">
               <p className="font-bold text-[17px]">Grand Total</p>
-              <p className="text-[#f83d8e] font-bold">2000</p>
+              <p className="text-[#f83d8e] font-bold">
+                {(total + 20).toFixed(2)}
+              </p>
             </div>
           </div>
         </div>

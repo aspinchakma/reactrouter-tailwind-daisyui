@@ -6,4 +6,12 @@ const loadDataLs = () => {
   const dataArray = JSON.parse(product);
   return dataArray;
 };
-export { loadDataLs };
+
+// Total Amount
+
+const calCulateTotalMoney = (array) => {
+  const money = array.reduce((acc, p) => acc + p.price * p.quantity, 0);
+  return money;
+};
+
+export { calCulateTotalMoney, loadDataLs };
