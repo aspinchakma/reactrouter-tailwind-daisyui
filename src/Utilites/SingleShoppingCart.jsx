@@ -19,8 +19,22 @@ const SingleShoppingCart = ({ item }) => {
         </div>
       </div>
       <p>{price}</p>
-      <div>
-        <h3>{quantity}</h3>
+      <div className="flex items-center">
+        <button
+          //   onClick={handleDecreaseQuantity}
+          className="border-2 border-gray-300 px-2 py-1 text-xl font-bold cursor-pointer border-r-0 rounded-l-full"
+        >
+          -
+        </button>
+        <p className="border-2 border-gray-300 px-2 py-1 text-xl font-bold ">
+          {quantity}
+        </p>
+        <button
+          //   onClick={handleIncreaseQuantity}
+          className="border-2 border-gray-300 px-2 py-1 text-xl font-bold cursor-pointer border-l-0 rounded-r-full"
+        >
+          +
+        </button>
       </div>
       <h3>{(price * quantity).toFixed(2)}</h3>
       <button>delete</button>

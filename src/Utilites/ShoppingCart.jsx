@@ -51,7 +51,7 @@ const ShoppingCart = () => {
           {path}
         </p>
       </div>
-      <div className=" lg:py-[120px] w-[90%] lg:w-[80%] mx-auto">
+      <div className=" lg:py-[80px] py-[40] w-[90%] lg:w-[80%] mx-auto">
         <div className="text-xl font-bold flex justify-between items-center">
           <h3>Shopping Cart</h3>
           <h3>({data.length > 10 ? data.length : `0${data.length}`} Items)</h3>
