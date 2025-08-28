@@ -104,7 +104,7 @@ const IceCreamDetails = () => {
             item.id = id;
             return { id, quantity };
           }
-          return { id, quantity };
+          return item;
         });
         dataLS = finalResult;
       } else {
