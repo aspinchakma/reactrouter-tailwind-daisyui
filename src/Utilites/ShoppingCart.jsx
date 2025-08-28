@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import { loadDataLs } from "./DataLS";
 import Footer from "./Footer";
 import "./ShoppingCart.css";
@@ -54,6 +55,31 @@ const ShoppingCart = () => {
     localStorage.setItem("cart", JSON.stringify(saveDataLS));
   };
 
+  const handleDecreaseQuantity = (id) => {
+    const saveDataLS = [];
+    const updatedData = data.map((item) => {
+      if (item.id == id) {
+        if (item.quantity > 1) {
+          item.quantity = item.quantity - 1;
+          saveDataLS.push({ id: item.id, quantity: item.quantity });
+          return item;
+        } else {
+          toast("you have to choose minimu 1 quantity");
+        }
+        saveDataLS.push({ id: item.id, quantity: item.quantity });
+        return item;
+      }
+      saveDataLS.push({ id: item.id, quantity: item.quantity });
+      return item;
+    });
+
+    // updating data on ui
+    setData(updatedData);
+
+    // set data on local storage
+    localStorage.setItem("cart", JSON.stringify(saveDataLS));
+  };
+
   return (
     <div>
       <div className="header py-10">
@@ -88,6 +114,7 @@ const ShoppingCart = () => {
                   item={item}
                   key={item.id}
                   handleIncreaseQuantity={handleIncreaseQuantity}
+                  handleDecreaseQuantity={handleDecreaseQuantity}
                 />
               ))}
             </div>
