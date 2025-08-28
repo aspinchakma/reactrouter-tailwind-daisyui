@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowRight, FaStar } from "react-icons/fa";
 import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
@@ -53,6 +53,28 @@ const IceCreamDetails = () => {
       });
     }
   };
+
+  // initially quantity load from ls
+  useEffect(() => {
+    let dataLS = loadDataLs();
+    if (!dataLS.length) {
+      setQuantity(1);
+      return;
+    }
+
+    // if length not = 0
+    // 1. check 2. include show updated data or 2. show initial quanitiy
+    if (dataLS.length) {
+      const isInclude = dataLS.find((i) => i.id == id);
+      if (isInclude) {
+        const updatedQuantity = isInclude.quantity;
+        setQuantity(updatedQuantity);
+        setTotalPrice(price * updatedQuantity);
+      } else {
+        setQuantity(1);
+      }
+    }
+  }, []);
 
   const hanlePlaceOrder = () => {
     const product = { id, quantity };
