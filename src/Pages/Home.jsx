@@ -5,7 +5,7 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className=" lg:h-[100vh] home_container  flex items-center justify-center flex-col lg:flex-row h-auto p-5 lg:p-0">
-      <div>
+      <div className="text-center lg:text-left">
         <h3 className="text-3xl  home_banner_common">Welcome to The</h3>
         <h2 className="text-6xl home_banner_common mt-6">
           Classic
@@ -25,7 +25,7 @@ const Home = () => {
       </div>
       <div>
         <img
-          className="w-[400px]"
+          className="mx-auto w-[400px]"
           src="https://i.ibb.co.com/WNrgWx8v/home-ice.png"
           alt=""
         />
