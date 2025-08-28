@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaArrowRight, FaStar } from "react-icons/fa";
 import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
+import { loadDataLs } from "./DataLS";
 import DetailsHeader from "./DetailsHeader";
 import Footer from "./Footer";
 import SingleProductBanner from "./SingleProductBanner";
@@ -22,6 +23,7 @@ const IceCreamDetails = () => {
     rating,
     shortIntroduction,
     additionalInformation,
+    id,
   } = data;
 
   // showing total Price
@@ -51,13 +53,65 @@ const IceCreamDetails = () => {
       });
     }
   };
+
+  const hanlePlaceOrder = () => {
+    const product = { id, quantity };
+    let dataLS = loadDataLs();
+    if (!dataLS.length) {
+      dataLS.push(product);
+      localStorage.setItem("cart", JSON.stringify(dataLS));
+      toast.success(`${name} Added On Your Cart`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+
+      return;
+    }
+    if (dataLS.length) {
+      const result = dataLS.find((item) => item.id == id);
+      if (result) {
+        const finalResult = dataLS.map((item) => {
+          if (item.id == id) {
+            item.id = id;
+            return { id, quantity };
+          }
+          return { id, quantity };
+        });
+        dataLS = finalResult;
+      } else {
+        dataLS.push(product);
+      }
+
+      //  set data in local storage
+      localStorage.setItem("cart", JSON.stringify(dataLS));
+      toast.success(`${name} Added On Your Cart`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
+  };
+
   return (
     <div>
       <SingleProductBanner />
-      <div className="w-[70%] mx-auto mt-10">
-        <div className="grid grid-cols-2 gap-6">
+      <div className="lg:w-[70%] mx-auto mt-10 w-[95%]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <img
-            className="w-full object-cover lg:h-[500px] rounded-lg"
+            className="lg:w-full mx-auto object-cover lg:h-[500px] rounded-lg w-[90%]"
             src={image}
             alt=""
           />
@@ -131,7 +185,10 @@ const IceCreamDetails = () => {
                   +
                 </button>
               </div>
-              <button className="bg-[#f83d8e] py-2 px-4 rounded-lg text-white border-2 border-[#f83d8e] duration-550 cursor-pointer text-[18px] hover:bg-transparent hover:text-[#f83d8e] font-bold">
+              <button
+                onClick={hanlePlaceOrder}
+                className="bg-[#f83d8e] py-2 px-4 rounded-lg text-white border-2 border-[#f83d8e] duration-550 cursor-pointer text-[18px] hover:bg-transparent hover:text-[#f83d8e] font-bold"
+              >
                 Add To Cart <FaArrowRight className="inline-block" />
               </button>
             </div>
