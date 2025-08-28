@@ -1,5 +1,5 @@
-const SingleShoppingCart = ({ item }) => {
-  const { image, quantity, name, price } = item;
+const SingleShoppingCart = ({ item, handleIncreaseQuantity }) => {
+  const { image, quantity, name, price, id } = item;
   return (
     <div className="grid grid-cols-6 items-center border-1 border-[#e3e4e5] rounded-lg mt-2 px-3 py-4 gap-4">
       <div className="flex items-center gap-3 col-span-2">
@@ -30,7 +30,7 @@ const SingleShoppingCart = ({ item }) => {
           {quantity}
         </p>
         <button
-          //   onClick={handleIncreaseQuantity}
+          onClick={() => handleIncreaseQuantity(id)}
           className="border-2 border-gray-300 px-2 py-1 text-xl font-bold cursor-pointer border-l-0 rounded-r-full"
         >
           +

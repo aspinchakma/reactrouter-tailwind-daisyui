@@ -35,9 +35,25 @@ const ShoppingCart = () => {
     }
   }, []);
 
-  console.log(data);
   const location = useLocation();
   const path = location.pathname.split("/").filter(Boolean).join(" / ");
+
+  const handleIncreaseQuantity = (id) => {
+    const saveDataLS = [];
+    const iceCreamData = data.map((item) => {
+      if (item.id == id) {
+        item.quantity = item.quantity + 1;
+        saveDataLS.push({ id: item.id, quantity: item.quantity });
+        return item;
+      }
+      saveDataLS.push({ id: item.id, quantity: item.quantity });
+      return item;
+    });
+    setData(iceCreamData);
+    // store on local storage
+    localStorage.setItem("cart", JSON.stringify(saveDataLS));
+  };
+
   return (
     <div>
       <div className="header py-10">
@@ -68,7 +84,11 @@ const ShoppingCart = () => {
             </div>
             <div>
               {data.map((item) => (
-                <SingleShoppingCart item={item} key={item.id} />
+                <SingleShoppingCart
+                  item={item}
+                  key={item.id}
+                  handleIncreaseQuantity={handleIncreaseQuantity}
+                />
               ))}
             </div>
           </div>
